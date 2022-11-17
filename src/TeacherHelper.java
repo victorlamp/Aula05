@@ -3,8 +3,9 @@ import java.util.Scanner;
 
 public class TeacherHelper {
 
-	public static final double HORA_AULA = 17.50;
+	
 	public static void main(String[] args) {
+		
 		int opcao=0, numeroAulas, qtdeAlunos, i;
 		double salarioBase, horaAtividade, descansoSemanalRemunerado, salario, notaAluno, mediaAlunos;
 		
@@ -27,7 +28,9 @@ public class TeacherHelper {
 				 * http://www1.sinprosp.org.br/guia_consultas.asp?mat=8*/
 				System.out.println("Para calcular seu sal�rio base precisamos saber quantas aulas semanais o professor tem na institui��o");
 				numeroAulas = leitor.nextInt();
-				salarioBase = numeroAulas * 4.5 * HORA_AULA;
+				System.out.println("É preciso informar, também, o valor da hora-aula praticado na instituição");
+                double horaAula = leitor.nextDouble();
+				salarioBase = numeroAulas * 4.5 * horaAula;
 				horaAtividade = salarioBase * 0.05;
 				descansoSemanalRemunerado = (salarioBase + horaAtividade) / 6;
 				salario = salarioBase + horaAtividade + descansoSemanalRemunerado;
@@ -48,6 +51,7 @@ public class TeacherHelper {
 					System.out.println("Digite a nota do " + (i+1) + "� aluno:");
 					notaAluno = leitor.nextDouble();
 					mediaAlunos = mediaAlunos + notaAluno;
+					i++;
 				}
 				mediaAlunos = mediaAlunos / qtdeAlunos;
 				System.out.println("A m�dia de notas dos alunos dessa turma � " + mediaAlunos);
